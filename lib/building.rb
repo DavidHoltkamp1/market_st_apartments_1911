@@ -25,4 +25,14 @@ attr_reader :units
     end
     highest_rent.renter
   end
+
+  def annual_breakdown
+    annual = {}
+    @units.map do |unit|
+      if unit.renter != nil
+      annual[unit.renter.name] = (unit.monthly_rent) * 12
+      end
+    end
+    annual
+  end
 end
